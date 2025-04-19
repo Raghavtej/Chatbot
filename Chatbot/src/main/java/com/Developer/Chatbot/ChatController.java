@@ -8,12 +8,12 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/api/chat")
 public class ChatController {
 
-    private final String RASA_URL = "http://localhost:5005/webhooks/rest/webhook"; // Adjust the URL if needed
+    private final String RASA_URL = "http://localhost:5005/webhooks/rest/webhook"; 
 
     @PostMapping
     public ResponseEntity<?> chat(@RequestBody String message) {
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.postForObject(RASA_URL, message, String.class);
-        return ResponseEntity.ok(response); // Return Rasa's response
+        return ResponseEntity.ok(response); 
     }
 }
